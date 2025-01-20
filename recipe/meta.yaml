@@ -14,7 +14,7 @@ source:
     sha256: 129e380050ca79c6b89160475cb339da59067b6c36db85187ebbc50ea6b901d5
 
 build:
-  number: 0
+  number: 1
   script:
     - pushd {{ pkg_src }}
     - go build -ldflags "-w -X github.com/helm/chart-testing/v3/ct/cmd.Version={{ version }}" -v -o $PREFIX/bin/ct ./ct  # [not win]
