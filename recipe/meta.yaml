@@ -1,5 +1,5 @@
 {% set goname = "github.com/helm/chart-testing" %}
-{% set version = "3.14.0" %}
+{% set version = "3.15.0" %}
 
 {% set name = goname.split('/')[-1] %}
 {% set pkg_src = ('src/'+goname).replace("/",os.sep) %}
@@ -11,10 +11,10 @@ package:
 source:
   - folder: {{ pkg_src }}
     url: https://{{ goname }}/archive/v{{ version }}.tar.gz
-    sha256: 58cae75d1c520b609b7c9f2840b6f47d61e41b7b97e6381d034748cd44ece8ae
+    sha256: e601f63bc2b149b3318b51866a147fe124761f564b29f4096849601d702086cb
 
 build:
-  number: 1
+  number: 0
   script:
     - pushd {{ pkg_src }}
     - go build -ldflags "-w -X github.com/helm/chart-testing/v3/ct/cmd.Version={{ version }}" -v -o $PREFIX/bin/ct ./ct  # [not win]
